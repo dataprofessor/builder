@@ -65,7 +65,7 @@ if image_upload is not None and api_key and start_button:
       full_response = ''
       message_placeholder = st.empty()
           
-      for completion in OpenAI().chat.completions.create(
+      for completion in client.chat.completions.create(
         model='gpt-4-vision-preview', messages=messages, 
         max_tokens=1280, stream=True):
                   
