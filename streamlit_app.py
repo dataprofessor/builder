@@ -29,5 +29,8 @@ client = OpenAI(api_key=api_key)
 # Upload image
 image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 
+if uploaded_file:
+  st.image(image_upload, use_column_width=True)
+
 
 
