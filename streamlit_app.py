@@ -31,8 +31,8 @@ image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 if image_upload:
   st.image(image_upload, use_column_width=True)
 
-  encoded_img = encode_image(image_upload)
-  encoded_img
+  base64_image = encode_image(image_upload)
+  st.write(base64_image)
   
 # Start LLM process
 
@@ -45,7 +45,7 @@ client = OpenAI(api_key=api_key)
 if image_upload is not None and api_key and start_button:
 # if image_upload is not None and openai.api_key and start_button:
   with st.spinner('Processing ...'):
-    encoded_img = encode_image(image_upload)
+    base64_image = encode_image(image_upload)
     prompt_instructions = (
             "You are an experienced Python developer who can build amazing Streamlit apps. "
             "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code."
@@ -56,7 +56,7 @@ if image_upload is not None and api_key and start_button:
                 'content': [
                     {'type': 'text', 'text': prompt_instructions},
                     {
-                        'type': 'image_url', 'image_url': f'data:image/png;base64,{encoded_img}',
+                        'type': 'image_url', 'image_url': f'data:image/jpeg;base64,{base64_image}',
                     },
                 ],
             }
