@@ -29,7 +29,7 @@ def encode_image(image_path):
 # Upload image
 image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 
-if uploaded_file:
+if image_upload:
   st.image(image_upload, use_column_width=True)
 
 # Start LLM process
@@ -53,7 +53,7 @@ if image_upload is not None and openai.api_key and start_button:
                     {'type': 'text', 'text': prompt_instructions},
                     {
                         'type': 'image_url',
-                        'image_url': f'data:image/jpeg;base64,{base64_image}',
+                        'image_url': f'data:image/jpeg;base64,{encoded_img}',
                     },
                 ],
             }
@@ -70,14 +70,14 @@ if image_upload is not None and openai.api_key and start_button:
                   
           if completion.choices[0].delta.content is not None:
             full_response += completion.choices[0].delta.content
-            message_placeholder.markdown(full_response + "▌")
+            message_placeholder.markdown(full_response + '▌')
                   
       message_placeholder.markdown(full_response)
     
     except Exception as e:
       st.error(f'An error occurred: {e}')
 else:
-    if not uploaded_file and analyze_button:
+    if not image_upload and start_button:
         st.warning('Please upload your mock-up image.')
     if not openai.api_key:
         st.warning('Please provide your OpenAI API key.')
