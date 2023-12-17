@@ -43,7 +43,7 @@ if image_upload is not None and openai.api_key and start_button:
     prompt_instructions = (
             "You are an experienced Python developer who can build amazing Streamlit apps. "
             "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code."
-        )
+           )
     messages = [
             {
                 'role': 'user',
@@ -57,23 +57,23 @@ if image_upload is not None and openai.api_key and start_button:
             }
         ]
 
-        try:
-            # Response generation
-            full_response = ''
-            message_placeholder = st.empty()
+    try:
+      # Response generation
+      full_response = ''
+      message_placeholder = st.empty()
           
-            for completion in client.chat.completions.create(
-                model='gpt-4-vision-preview', messages=messages, 
-                max_tokens=1280, stream=True):
+      for completion in client.chat.completions.create(
+        model='gpt-4-vision-preview', messages=messages, 
+        max_tokens=1280, stream=True):
                   
-                if completion.choices[0].delta.content is not None:
-                    full_response += completion.choices[0].delta.content
-                    message_placeholder.markdown(full_response + "▌")
+          if completion.choices[0].delta.content is not None:
+            full_response += completion.choices[0].delta.content
+            message_placeholder.markdown(full_response + "▌")
                   
-            message_placeholder.markdown(full_response)
+      message_placeholder.markdown(full_response)
     
-        except Exception as e:
-            st.error(f'An error occurred: {e}')
+    except Exception as e:
+      st.error(f'An error occurred: {e}')
 else:
     if not uploaded_file and analyze_button:
         st.warning('Please upload your mock-up image.')
