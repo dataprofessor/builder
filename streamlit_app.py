@@ -79,5 +79,5 @@ if image_upload is not None and openai.api_key and start_button:
 else:
     if not image_upload and start_button:
         st.warning('Please upload your mock-up image.')
-    if not openai.api_key:
-        st.warning('Please provide your OpenAI API key.')
+    #if not openai.api_key:
+        #st.warning('Please provide your OpenAI API key.')
