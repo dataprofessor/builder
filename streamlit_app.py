@@ -10,15 +10,15 @@ st.title('👀 GPT4 Vision')
 st.info('This app is created using the GPT4 Vision from OpenAI.')
 
 # API Credentials
-if 'OPENAI_API_KEY' in st.secrets:
-  st.success('API key already provided!', icon='✅')
-  openai.api_key = st.secrets['OPENAI_API_KEY']
-else:
-  openai.api_key = st.text_input('Enter OpenAI API token:', type='password')
-  if not (openai.api_key.startswith('sk-') and len(openai.api_key)==51):
-    st.warning('Please enter your credentials!', icon='⚠️')
-  else:
-    st.success('Proceed to entering your prompt message!', icon='👇')
+#if 'OPENAI_API_KEY' in st.secrets:
+#  st.success('API key already provided!', icon='✅')
+#  openai.api_key = st.secrets['OPENAI_API_KEY']
+#else:
+#  openai.api_key = st.text_input('Enter OpenAI API token:', type='password')
+#  if not (openai.api_key.startswith('sk-') and len(openai.api_key)==51):
+#    st.warning('Please enter your credentials!', icon='⚠️')
+#  else:
+#    st.success('Proceed to entering your prompt message!', icon='👇')
 
 # Function to encode the image
 def encode_image(image_path):
@@ -37,9 +37,11 @@ if image_upload:
 start_button = st.button('Build')
 
 # Initialize OpenAI client with API key
-# client = OpenAI(api_key=openai.api_key)
+api_key = st.secrets['OPENAI_API_KEY']
+client = OpenAI(api_key=api_key)
 
-if image_upload is not None and openai.api_key and start_button:
+if image_upload is not None and api_key and start_button:
+# if image_upload is not None and openai.api_key and start_button:
   with st.spinner('Processing ...'):
     encoded_img = encode_image(image_upload)
     prompt_instructions = (
@@ -79,5 +81,5 @@ if image_upload is not None and openai.api_key and start_button:
 else:
   if not image_upload and start_button:
     st.warning('Please upload your mock-up image.')
-  #if not openai.api_key:
-    #st.warning('Please provide your OpenAI API key.')
+  if not api_key:
+    st.warning('Please provide your OpenAI API key.')
