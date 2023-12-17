@@ -27,19 +27,21 @@ image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
-    bytes_data = image_file.read()
-    with NamedTemporaryFile(delete=False) as tmp:
-      tmp.write(bytes_data)
-      #data = PyPDFLoader(tmp.name).load()
-    #os.remove(tmp.name)
-
-    #return base64.b64encode(image_file.read()).decode('utf-8')
+    return base64.b64encode(image_file.read()).decode('utf-8')
 
 
 if image_upload:
   st.image(image_upload, use_column_width=True)
 
-  base64_image = encode_image(image_upload)
-  st.write(base64_image)
+  # base64_image = encode_image(image_upload)
+  # st.write(base64_image)
+
+  bytes_data = image_file.read()
+  with NamedTemporaryFile(delete=False) as tmp:
+    tmp.write(bytes_data)
+    st.write(tmp.name)
+      #data = PyPDFLoader(tmp.name).load()
+    #os.remove(tmp.name)
+    
   
 
