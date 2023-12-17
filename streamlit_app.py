@@ -37,7 +37,7 @@ if image_upload:
 start_button = st.button('Build')
 
 # Initialize OpenAI client with API key
-# client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=openai.api_key)
 
 if image_upload is not None and openai.api_key and start_button:
   with st.spinner('Processing ...'):
@@ -64,7 +64,7 @@ if image_upload is not None and openai.api_key and start_button:
       full_response = ''
       message_placeholder = st.empty()
           
-      for completion in OpenAI().chat.completions.create(
+      for completion in client.chat.completions.create(
         model='gpt-4-vision-preview', messages=messages, 
         max_tokens=1280, stream=True):
                   
