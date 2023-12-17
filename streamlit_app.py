@@ -31,7 +31,7 @@ image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 if image_upload:
   st.image(image_upload, use_column_width=True)
 
-  base64_image = encode_image(image_upload)
-  #st.write(base64_image)
+  base64_image = encode_image(image_upload.name)
+  st.write(base64_image)
   
 
