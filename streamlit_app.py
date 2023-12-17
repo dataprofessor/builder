@@ -52,8 +52,7 @@ if image_upload is not None and openai.api_key and start_button:
                 'content': [
                     {'type': 'text', 'text': prompt_instructions},
                     {
-                        'type': 'image_url',
-                        'image_url': f'data:image/jpeg;base64,{encoded_img}',
+                        'type': 'image_url', 'image_url': f'data:image/jpeg;base64,{encoded_img}',
                     },
                 ],
             }
