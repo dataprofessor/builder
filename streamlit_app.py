@@ -31,6 +31,9 @@ image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 if image_upload:
   st.image(image_upload, use_column_width=True)
 
+  encoded_img = encode_image(image_upload)
+  encoded_img
+  
 # Start LLM process
 
 start_button = st.button('Build')
