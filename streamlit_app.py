@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 import openai
 from openai import OpenAI
-
+from tempfile import NamedTemporaryFile
 
 # App title
 st.set_page_config(page_title='👀 GPT4 Vision')
@@ -20,18 +20,26 @@ st.info('This app is created using the GPT4 Vision from OpenAI.')
 #  else:
 #    st.success('Proceed to entering your prompt message!', icon='👇')
 
-# Function to encode the image
-def encode_image(image_path):
-  with open(image_path, "rb") as image_file:
-    return base64.b64encode(image_file.read()).decode('utf-8')
 
 # Upload image
 image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 
+# Function to encode the image
+def encode_image(image_path):
+  with open(image_path, "rb") as image_file:
+    bytes_data = image_file.read()
+    with NamedTemporaryFile(delete=False) as tmp:
+      tmp.write(bytes_data)
+      #data = PyPDFLoader(tmp.name).load()
+    #os.remove(tmp.name)
+
+    #return base64.b64encode(image_file.read()).decode('utf-8')
+
+
 if image_upload:
   st.image(image_upload, use_column_width=True)
 
-  base64_image = encode_image(image_upload.name)
+  base64_image = encode_image(image_upload)
   st.write(base64_image)
   
 
