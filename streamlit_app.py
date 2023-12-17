@@ -36,7 +36,7 @@ if image_upload:
   # base64_image = encode_image(image_upload)
   # st.write(base64_image)
 
-  bytes_data = image_file.read()
+  bytes_data = image_upload.read()
   with NamedTemporaryFile(delete=False) as tmp:
     tmp.write(bytes_data)
     st.write(tmp.name)
