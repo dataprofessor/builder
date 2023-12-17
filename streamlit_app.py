@@ -1,6 +1,8 @@
 import streamlit as st
 import base64
+import openai
 from openai import OpenAI
+
 
 # App title
 st.set_page_config(page_title='👀 GPT4 Vision')
