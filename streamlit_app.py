@@ -5,9 +5,9 @@ from openai import OpenAI
 from tempfile import NamedTemporaryFile
 
 # App title
-st.set_page_config(page_title='👀 GPT4 Vision')
-st.title('👀 GPT4 Vision')
-st.info('This app is created using the GPT4 Vision from OpenAI.')
+st.set_page_config(page_title='👀 GPT-4 with Vision')
+st.title('👀 GPT-4 with Vision')
+st.info('This app is created using the GPT-4 with Vision (GPT-4V) from OpenAI.')
 
 # API Credentials
 #if 'OPENAI_API_KEY' in st.secrets:
