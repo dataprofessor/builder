@@ -24,6 +24,11 @@ st.info('This app is created using the GPT4 Vision from OpenAI.')
 # Upload image
 image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 
+prompt_instructions = st.text_area("Prompt instructions",
+            "You are an experienced Python developer who can build amazing Streamlit apps."
+            "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code."
+           )
+
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
@@ -45,7 +50,6 @@ if image_upload:
     
 
 # Start LLM process
-
 start_button = st.button('Build')
 
 # Initialize OpenAI client with API key
@@ -56,10 +60,7 @@ if image_upload is not None and api_key and start_button:
 # if image_upload is not None and openai.api_key and start_button:
   with st.spinner('Processing ...'):
     base64_image = encode_image(tmp.name)
-    prompt_instructions = (
-            "You are an experienced Python developer who can build amazing Streamlit apps. "
-            "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code."
-           )
+    
     messages = [
             {
                 'role': 'user',
