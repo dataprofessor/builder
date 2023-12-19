@@ -9,6 +9,18 @@ st.set_page_config(page_title='🎈 Streamlit App Builder')
 st.title('🎈 Streamlit App Builder')
 st.info('This app builder is created using the GPT-4 with Vision (GPT-4V) from OpenAI.')
 
+# CSS styling
+st.markdown("""
+<style>
+
+[data-testid="block-container"] {
+    padding-top: 1.3rem;
+    padding-bottom: 0rem;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # tabs = st.tabs(['Provide mock-up image', 'Provide text instructions'])
 
 # Upload image
