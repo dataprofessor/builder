@@ -26,8 +26,8 @@ image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
 
 with st.expander('Edit prompt instructions')
   prompt_instructions = st.text_area("Prompt instructions",
-                        "You are an experienced Python developer who can build amazing Streamlit apps.\n"
-                        "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
+                          "You are an experienced Python developer who can build amazing Streamlit apps.\n"
+                          "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
                         )
 
 # Function to encode the image
