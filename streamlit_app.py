@@ -35,9 +35,8 @@ if image_upload:
   bytes_data = image_upload.read()
   with NamedTemporaryFile(delete=False) as tmp:
     tmp.write(bytes_data)
-    st.write(tmp.name)
+  
     
-    #os.remove(tmp.name)
     
 
 # Start LLM process
@@ -78,6 +77,9 @@ if image_upload is not None and api_key and start_button:
             message_placeholder.markdown(full_response + '▌')
                   
       message_placeholder.markdown(full_response)
+
+      if st.button('Clear'):
+        os.remove(tmp.name)
     
     except Exception as e:
       st.error(f'An error occurred: {e}')
