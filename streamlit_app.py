@@ -20,6 +20,7 @@ st.info('This app builder is created using the GPT-4 with Vision (GPT-4V) from O
 #  else:
 #    st.success('Proceed to entering your prompt message!', icon='👇')
 
+# tabs = st.tabs(['Provide mock-up image', 'Provide text instructions'])
 
 # Upload image
 image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
