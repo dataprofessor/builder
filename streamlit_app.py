@@ -78,6 +78,7 @@ if image_upload is not None and api_key and start_button:
                   
       message_placeholder.markdown(full_response)
 
+      # Clear results
       if st.button('Clear'):
         os.remove(tmp.name)
     
