@@ -5,7 +5,7 @@ from openai import OpenAI
 from tempfile import NamedTemporaryFile
 
 # App title
-st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈')
+st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈', layout='wide')
 st.title('🎈 Streamlit App Builder')
 st.info('This app builder is created using the GPT-4 with Vision (GPT-4V) from OpenAI.')
 
