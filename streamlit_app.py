@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import time
 import openai
 from openai import OpenAI
 from tempfile import NamedTemporaryFile
@@ -82,6 +83,7 @@ with tabs[0]:
     
     if 'img' in locals() or 'img' in globals() and start_button:
         with st.spinner('Processing ...'):
+            time.sleep(1)
             if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
                 st.code('Code 1')
             if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
