@@ -66,7 +66,8 @@ with tabs[0]:
                         ],
                 #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
                 )
-    img
+    if example_img is not None:
+        img
     
     with st.expander('Expand to edit prompt instructions'):
         prompt_instructions = st.text_area("Prompt instructions",
