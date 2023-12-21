@@ -7,7 +7,7 @@ from tempfile import NamedTemporaryFile
 # App title
 st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈', layout='wide')
 st.title('🎈 Streamlit App Builder')
-st.info('In this app you can **show** (provide mock-up image) or **tell** (provide text prompt) how you want your Streamlit app to be built.')
+st.info('In this app you can **Show** (provide mock-up image) or **Tell** (provide text prompt) how you want your Streamlit app to be built.')
 # This app builder is created using the GPT-4 with Vision (GPT-4V) from OpenAI.
 
 # CSS styling
