@@ -22,6 +22,10 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Initialize OpenAI client with API key
+api_key = st.secrets['OPENAI_API_KEY']
+client = OpenAI(api_key=api_key)
+
 tabs = st.tabs(['Show', 'Tell'])
 
 with tabs[0]:
@@ -54,8 +58,8 @@ with tabs[0]:
     start_button = st.button('Build')
     
     # Initialize OpenAI client with API key
-    api_key = st.secrets['OPENAI_API_KEY']
-    client = OpenAI(api_key=api_key)
+    #api_key = st.secrets['OPENAI_API_KEY']
+    #client = OpenAI(api_key=api_key)
     
     if image_upload is not None and api_key and start_button:
     # if image_upload is not None and openai.api_key and start_button:
@@ -102,3 +106,5 @@ with tabs[0]:
       if not api_key:
         st.warning('Please provide your OpenAI API key.')
 
+with tabs[1]:
+    
