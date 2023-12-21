@@ -32,6 +32,7 @@ tabs = st.tabs(['Show', 'Tell'])
 
 with tabs[0]:
     # Upload image
+    st.subheader('Upload your own mock-up image')
     image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
     
     with st.expander('Expand to edit prompt instructions'):
@@ -57,16 +58,17 @@ with tabs[0]:
         tmp.write(bytes_data)
 
     # Example images
+    st.subheader('Try these example mock-up images')
     img = image_select(
-    label="Select a cat",
-    images=[
-             "https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
-             "https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
-             "https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
-             "https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
-            ],
-    #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
-    )
+            label="Select a cat",
+            images=[
+                     "https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
+                     "https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
+                     "https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
+                     "https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
+                    ],
+            #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
+            )
     
     # Start LLM process
     start_button = st.button('Build', key='button_image_start')
