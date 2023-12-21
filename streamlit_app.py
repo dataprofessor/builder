@@ -113,10 +113,9 @@ with tabs[1]:
         ""
     )
 
-    with st.expander('Expand to edit prompt instructions'):
-        prompt_instructions = st.text_area("Prompt instructions",
+    with st.expander('Expand to edit system prompt'):
+        prompt_instructions = st.text_area("System Prompt",
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
-                                "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
                               )
     
     # Start LLM process
