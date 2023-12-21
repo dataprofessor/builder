@@ -81,14 +81,15 @@ with tabs[0]:
 
     
     if 'img' in locals() or 'img' in globals() and start_button:
-        if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
-            st.code('Code 1')
-        if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
-            st.code('Code 2')
-        if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
-            st.code('Code 3')
-        if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
-            st.code('Code 4')
+        with st.spinner('Processing ...'):
+            if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
+                st.code('Code 1')
+            if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
+                st.code('Code 2')
+            if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
+                st.code('Code 3')
+            if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
+                st.code('Code 4')
         
 
     
