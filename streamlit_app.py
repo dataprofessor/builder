@@ -30,6 +30,7 @@ client = OpenAI(api_key=api_key)
 
 tabs = st.tabs(['Show', 'Tell'])
 
+# Show how the app should be built
 with tabs[0]:
     # Upload image
     st.subheader('Upload your own mock-up image')
@@ -52,18 +53,21 @@ with tabs[0]:
         tmp.write(bytes_data)
 
     # Example images
-    st.subheader('Try these example mock-up images')
-    img = image_select(
-            label="Select a cat",
-            images=[
-                     "https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
-                     "https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
-                     "https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
-                     "https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
-                    ],
-            #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
-            )
-
+    example_img = st.toggle('Try example mock-up images')
+    if example_img:
+        st.subheader('Try these example mock-up images')
+        img = image_select(
+                label="Select a cat",
+                images=[
+                         "https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
+                         "https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
+                         "https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
+                         "https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
+                        ],
+                #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
+                )
+    img
+    
     with st.expander('Expand to edit prompt instructions'):
         prompt_instructions = st.text_area("Prompt instructions",
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
@@ -123,6 +127,7 @@ with tabs[0]:
         st.warning('Please provide your OpenAI API key.')
 
 
+# Tell how the app should be built
 with tabs[1]:
     text_prompt = st.text_area(
         "Describe details on the functionalities of the Streamlit app that you want to build.",
