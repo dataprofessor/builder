@@ -84,7 +84,7 @@ with tabs[0]:
     if 'img' in locals() or 'img' in globals():
         if start_button:
             with st.spinner('Processing ...'):
-                time.sleep(1)
+                time.sleep(1.5)
                 if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
                     st.code('Code 1')
                 if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
