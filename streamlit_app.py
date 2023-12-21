@@ -106,5 +106,46 @@ with tabs[0]:
       if not api_key:
         st.warning('Please provide your OpenAI API key.')
 
+
 with tabs[1]:
+    text_prompt = st.text_area(
+        "Describe details on the functionalities of the Streamlit app that you want to build.",
+        ""
+    )
     
+    # Start LLM process
+    start_button = st.button('Build')
+    
+    if text_prompt is not None and api_key and start_button:
+        with st.spinner('Processing ...'):
+            messages=[
+                        {"role": "system", "content": "You are an experienced Python developer who can build amazing Streamlit apps."},
+                        {"role": "user", "content": text_prompt}
+                      ]
+        try:
+          # Response generation
+          full_response = ''
+          message_placeholder = st.empty()
+              
+          for completion in client.chat.completions.create(
+            model='gpt-4-vision-preview', messages=messages, 
+            max_tokens=1280, stream=True):
+                      
+              if completion.choices[0].delta.content is not None:
+                full_response += completion.choices[0].delta.content
+                message_placeholder.markdown(full_response + '▌')
+                      
+          message_placeholder.markdown(full_response)
+    
+          # Clear results
+          if st.button('Clear'):
+            os.remove(tmp.name)
+        
+        except Exception as e:
+          st.error(f'An error occurred: {e}')
+          
+    else:
+      if not text_prompt and start_button:
+        st.warning('Please provide your text prompt.')
+      if not api_key:
+        st.warning('Please provide your OpenAI API key.')
