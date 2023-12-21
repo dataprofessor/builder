@@ -66,21 +66,23 @@ with tabs[0]:
                         ],
                 #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
                 )
-    if 'img' in locals() or 'img' in globals():
-        img
     
     with st.expander('Expand to edit prompt instructions'):
         prompt_instructions = st.text_area("Prompt instructions",
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
                                 "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
                               )
+
+    
     
     # Start LLM process
     start_button = st.button('Build', key='button_image_start')
     
-    # Initialize OpenAI client with API key
-    #api_key = st.secrets['OPENAI_API_KEY']
-    #client = OpenAI(api_key=api_key)
+
+    
+    if 'img' in locals() or 'img' in globals() and start_button:
+        img
+
     
     if image_upload is not None and api_key and start_button:
     # if image_upload is not None and openai.api_key and start_button:
