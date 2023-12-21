@@ -35,12 +35,6 @@ with tabs[0]:
     st.subheader('Upload your own mock-up image')
     image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
     
-    with st.expander('Expand to edit prompt instructions'):
-      prompt_instructions = st.text_area("Prompt instructions",
-                              "You are an experienced Python developer who can build amazing Streamlit apps.\n"
-                              "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
-                            )
-    
     # Function to encode the image
     def encode_image(image_path):
       with open(image_path, "rb") as image_file:
@@ -69,6 +63,12 @@ with tabs[0]:
                     ],
             #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
             )
+
+    with st.expander('Expand to edit prompt instructions'):
+        prompt_instructions = st.text_area("Prompt instructions",
+                                "You are an experienced Python developer who can build amazing Streamlit apps.\n"
+                                "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
+                              )
     
     # Start LLM process
     start_button = st.button('Build', key='button_image_start')
