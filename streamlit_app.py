@@ -134,7 +134,7 @@ with tabs[1]:
           message_placeholder = st.empty()
               
           for completion in client.chat.completions.create(
-            model='gpt-4-vision-preview', messages=messages, 
+            model='gpt-4-turbo', messages=messages, 
             max_tokens=1280, stream=True):
                       
               if completion.choices[0].delta.content is not None:
