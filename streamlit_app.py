@@ -112,6 +112,12 @@ with tabs[1]:
         "Describe details on the functionalities of the Streamlit app that you want to build.",
         ""
     )
+
+    with st.expander('Expand to edit prompt instructions'):
+        prompt_instructions = st.text_area("Prompt instructions",
+                                "You are an experienced Python developer who can build amazing Streamlit apps.\n"
+                                "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
+                              )
     
     # Start LLM process
     start_button = st.button('Build', key='button_text_start')
