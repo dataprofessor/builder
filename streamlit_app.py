@@ -96,7 +96,7 @@ with tabs[0]:
         
 
     
-    if image_upload is not None and api_key and start_button:
+    elif image_upload is not None and api_key and start_button:
     # if image_upload is not None and openai.api_key and start_button:
       with st.spinner('Processing ...'):
         base64_image = encode_image(tmp.name)
@@ -136,8 +136,8 @@ with tabs[0]:
           st.error(f'An error occurred: {e}')
           
     else:
-      # if not image_upload and start_button:
-      if not image_upload and not img and start_button:
+      if not image_upload and start_button:
+      #if not image_upload and not img and start_button:
         st.warning('Please upload your mock-up image.')
       if not api_key:
         st.warning('Please provide your OpenAI API key.')
