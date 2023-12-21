@@ -66,7 +66,7 @@ with tabs[0]:
                         ],
                 #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
                 )
-    if 'img' in locals() or 'img' in globals()::
+    if 'img' in locals() or 'img' in globals():
         img
     
     with st.expander('Expand to edit prompt instructions'):
