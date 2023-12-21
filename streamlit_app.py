@@ -55,7 +55,7 @@ with tabs[0]:
         tmp.write(bytes_data)
       
     # Start LLM process
-    start_button = st.button('Build')
+    start_button = st.button('Build', key='button_image_start')
     
     # Initialize OpenAI client with API key
     #api_key = st.secrets['OPENAI_API_KEY']
@@ -94,7 +94,7 @@ with tabs[0]:
           message_placeholder.markdown(full_response)
     
           # Clear results
-          if st.button('Clear'):
+          if st.button('Clear', key='button_image_clear'):
             os.remove(tmp.name)
         
         except Exception as e:
@@ -114,7 +114,7 @@ with tabs[1]:
     )
     
     # Start LLM process
-    start_button = st.button('Build')
+    start_button = st.button('Build', key='button_text_start')
     
     if text_prompt is not None and api_key and start_button:
         with st.spinner('Processing ...'):
@@ -138,7 +138,7 @@ with tabs[1]:
           message_placeholder.markdown(full_response)
     
           # Clear results
-          if st.button('Clear'):
+          if st.button('Clear', key='button_text_clear'):
             os.remove(tmp.name)
         
         except Exception as e:
