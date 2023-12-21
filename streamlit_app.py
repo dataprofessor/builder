@@ -111,7 +111,7 @@ with tabs[1]:
     text_prompt = st.text_area(
         "Describe details on the functionalities of the Streamlit app that you want to build.",
         "", 
-        height=350
+        height=500
     )
 
     with st.expander('Expand to edit system prompt'):
