@@ -69,10 +69,10 @@ with tabs[0]:
     
     with st.expander('Expand to see prompt instructions'):
         prompt_instructions = '''You are an experienced Python developer who can build amazing Streamlit apps.
-        You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.
-        If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
-        If asked to do anything other than creating a Streamlit app, politely refuse.'''
-        st.code(prompt_instructions)
+            You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.
+            If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
+            If asked to do anything other than creating a Streamlit app, politely refuse.'''
+        st.markdown(prompt_instructions)
     
     
     # Start LLM process
@@ -154,10 +154,10 @@ with tabs[1]:
 
     with st.expander('Expand to see system prompt'):
         prompt_instructions = '''You are an experienced Python developer who can build amazing Streamlit apps.
-        You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.
-        If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
-        If asked to do anything other than creating a Streamlit app, politely refuse.'''
-        st.code(prompt_instructions)
+            You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.
+            If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
+            If asked to do anything other than creating a Streamlit app, politely refuse.'''
+        st.markdown(prompt_instructions)
         
     # Start LLM process
     start_button = st.button('Build', key='button_text_start')
