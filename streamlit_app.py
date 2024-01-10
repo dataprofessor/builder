@@ -126,13 +126,12 @@ with tabs[0]:
                 message_placeholder.markdown(full_response + '▌')
                       
           message_placeholder.markdown(full_response)
-    
+
+          parsed_output = full_response.split('```python')[1].lstrip('\n').split('```')[0]
+            
           # Clear results
           if st.button('Clear', key='button_image_clear'):
             os.remove(tmp.name)
-
-          #####
-          st.text(full_response)
         
         except Exception as e:
           st.error(f'An error occurred: {e}')
@@ -182,6 +181,8 @@ with tabs[1]:
                 message_placeholder.markdown(full_response + '▌')
                       
           message_placeholder.markdown(full_response)
+
+          parsed_output = full_response.split('```python')[1].lstrip('\n').split('```')[0]
     
           # Clear results
           if st.button('Clear', key='button_text_clear'):
