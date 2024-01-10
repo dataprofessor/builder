@@ -73,9 +73,7 @@ with tabs[0]:
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
                                 "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
                               , height=100)
-        prompt_instructions = prompt_instructions + \
-                              "If possible, try to find and use actual data as example data, if none is available then use randomly generated data.\n" + \
-                              "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
+        prompt_instructions = prompt_instructions + "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
     
     
     # Start LLM process
@@ -157,10 +155,7 @@ with tabs[1]:
         prompt_instructions = st.text_area("System Prompt",
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
                               )
-
-        prompt_instructions = prompt_instructions + \
-                              "If possible, try to find and use actual data as example data, if none is available then use randomly generated data.\n" + \
-                              "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
+        prompt_instructions = prompt_instructions + "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
         
     # Start LLM process
     start_button = st.button('Build', key='button_text_start')
