@@ -132,7 +132,7 @@ with tabs[0]:
             os.remove(tmp.name)
 
           #####
-          full_response
+          st.text(full_response)
         
         except Exception as e:
           st.error(f'An error occurred: {e}')
