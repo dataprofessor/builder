@@ -72,7 +72,7 @@ with tabs[0]:
         prompt_instructions = st.text_area("Prompt instructions",
                                 "You are an experienced Python developer who can build amazing Streamlit apps.\n"
                                 "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
-                              , height=110)
+                              , height=100)
         prompt_instructions = prompt_instructions + \
                               "If possible, try to find and use actual data as example data, if none is available then use randomly generated data.\n" + \
                               "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
