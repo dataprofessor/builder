@@ -67,12 +67,12 @@ with tabs[0]:
                 #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
                 )
     
-    with st.expander('Expand to edit prompt instructions'):
-        prompt_instructions = st.text_area("Prompt instructions",
-                                "You are an experienced Python developer who can build amazing Streamlit apps.\n"
-                                "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
-                              , height=100)
-        prompt_instructions = prompt_instructions + "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
+    with st.expander('Expand to see prompt instructions'):
+        prompt_instructions = '''You are an experienced Python developer who can build amazing Streamlit apps.\n
+                                 You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n
+                                 If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
+                                 If asked to do anything other than creating a Streamlit app, politely refuse.\n'''
+        st.write(prompt_instructions)
     
     
     # Start LLM process
@@ -152,11 +152,12 @@ with tabs[1]:
         height=240
     )
 
-    with st.expander('Expand to edit system prompt'):
-        prompt_instructions = st.text_area("System Prompt",
-                                "You are an experienced Python developer who can build amazing Streamlit apps.\n"
-                              )
-        prompt_instructions = prompt_instructions + "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
+    with st.expander('Expand to see system prompt'):
+        prompt_instructions = '''You are an experienced Python developer who can build amazing Streamlit apps.\n
+                                 You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n
+                                 If a graph is present in the app, instead of generating random data, please try to mimick the data points shown.
+                                 If asked to do anything other than creating a Streamlit app, politely refuse.\n'''
+        st.write(prompt_instructions)
         
     # Start LLM process
     start_button = st.button('Build', key='button_text_start')
