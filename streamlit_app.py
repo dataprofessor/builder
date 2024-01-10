@@ -130,6 +130,9 @@ with tabs[0]:
           # Clear results
           if st.button('Clear', key='button_image_clear'):
             os.remove(tmp.name)
+
+          #####
+          full_response
         
         except Exception as e:
           st.error(f'An error occurred: {e}')
