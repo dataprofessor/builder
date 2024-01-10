@@ -74,7 +74,7 @@ with tabs[0]:
                                 "You will be given a mock-up image of a Streamlit app for which you will convert it to a Streamlit app by generating the Python code.\n"
                                 "If possible, try to find and use actual data as example data, if none is available then use randomly generated data.\n"
                                 "If asked to do anything other than creating a Streamlit app, politely refuse.\n"
-                              , height=300)
+                              , height=150)
 
     
     
