@@ -7,7 +7,7 @@ from tempfile import NamedTemporaryFile
 from streamlit_image_select import image_select
 
 # App title
-st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈', layout='wide')
+st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈')
 st.title('🎈 Streamlit App Builder')
 st.info('In this app you can **Show** (provide mock-up image) or **Tell** (provide text prompt) how you want your Streamlit app to be built.')
 
