@@ -11,19 +11,6 @@ st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈')
 st.title('🎈 Streamlit App Builder')
 st.info('In this app you can **Show** (provide mock-up image) or **Tell** (provide text prompt) how you want your Streamlit app to be built.')
 
-# CSS styling
-st.markdown("""
-<style>
-
-[data-testid="block-container"] {
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-
 # Initialize OpenAI client with API key
 api_key = st.secrets['OPENAI_API_KEY']
 client = OpenAI(api_key=api_key)
