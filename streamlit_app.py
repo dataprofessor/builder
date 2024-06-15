@@ -73,78 +73,76 @@ with tabs[0]:
     start_button = st.button('Build', key='button_image_start')
     
 
+    if any([upload_img, example_img]) != True:  
     
-    if 'img' in locals() or 'img' in globals():
-        if start_button:
-            with st.spinner('Processing ...'):
-                time.sleep(1.5)
-                #if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
-                if img == "img/streamlit-app-mockup-1.png":
-                    st.subheader("Input")
-                    st.image("img/streamlit-app-mockup-1.png")
-                    st.subheader("Output")
-                    mockup_1()
-                #if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
-                if img == "img/streamlit-app-mockup-2.png":
-                    st.subheader("Input")
-                    st.image("img/streamlit-app-mockup-2.png")
-                    st.subheader("Output")
-                    st.code('Code 2')
-                #if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
-                    #st.code('Code 3')
-                #if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
-                    #st.code('Code 4')
-        
-    if any([upload_img, example_img]) != True:
-        pass
-    else:
-    ## elif image_upload is not None and api_key and start_button:
-    # if image_upload is not None and openai.api_key and start_button:
-      with st.spinner('Processing ...'):
-        base64_image = encode_image(tmp.name)
-        
-        messages = [
-                {
-                    'role': 'user',
-                    'content': [
-                        {'type': 'text', 'text': prompt_instructions},
-                        {
-                            'type': 'image_url', 'image_url': f'data:image/jpeg;base64,{base64_image}',
-                        },
-                    ],
-                }
-            ]
-    
-        try:
-          # Response generation
-          full_response = ''
-          message_placeholder = st.empty()
-              
-          for completion in client.chat.completions.create(
-            model='gpt-4-vision-preview', messages=messages, 
-            max_tokens=1280, stream=True):
-                      
-              if completion.choices[0].delta.content is not None:
-                full_response += completion.choices[0].delta.content
-                message_placeholder.markdown(full_response + '▌')
-                      
-          message_placeholder.markdown(full_response)
-
-          parsed_output = full_response.split('```python')[1].lstrip('\n').split('```')[0]
+        if 'img' in locals() or 'img' in globals():
+            if start_button:
+                with st.spinner('Processing ...'):
+                    time.sleep(1.5)
+                    #if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
+                    if img == "img/streamlit-app-mockup-1.png":
+                        st.subheader("Input")
+                        st.image("img/streamlit-app-mockup-1.png")
+                        st.subheader("Output")
+                        mockup_1()
+                    #if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
+                    if img == "img/streamlit-app-mockup-2.png":
+                        st.subheader("Input")
+                        st.image("img/streamlit-app-mockup-2.png")
+                        st.subheader("Output")
+                        st.code('Code 2')
+                    #if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
+                        #st.code('Code 3')
+                    #if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
+                        #st.code('Code 4')
             
-          # Clear results
-          if st.button('Clear', key='button_image_clear'):
-            os.remove(tmp.name)
+        elif image_upload is not None and api_key and start_button:
+        # if image_upload is not None and openai.api_key and start_button:
+          with st.spinner('Processing ...'):
+            base64_image = encode_image(tmp.name)
+            
+            messages = [
+                    {
+                        'role': 'user',
+                        'content': [
+                            {'type': 'text', 'text': prompt_instructions},
+                            {
+                                'type': 'image_url', 'image_url': f'data:image/jpeg;base64,{base64_image}',
+                            },
+                        ],
+                    }
+                ]
         
-        except Exception as e:
-          st.error(f'An error occurred: {e}')
-          
-    else:
-      if not image_upload and start_button:
-      #if not image_upload and not img and start_button:
-        st.warning('Please upload your mock-up image.')
-      if not api_key:
-        st.warning('Please provide your OpenAI API key.')
+            try:
+              # Response generation
+              full_response = ''
+              message_placeholder = st.empty()
+                  
+              for completion in client.chat.completions.create(
+                model='gpt-4-vision-preview', messages=messages, 
+                max_tokens=1280, stream=True):
+                          
+                  if completion.choices[0].delta.content is not None:
+                    full_response += completion.choices[0].delta.content
+                    message_placeholder.markdown(full_response + '▌')
+                          
+              message_placeholder.markdown(full_response)
+    
+              parsed_output = full_response.split('```python')[1].lstrip('\n').split('```')[0]
+                
+              # Clear results
+              if st.button('Clear', key='button_image_clear'):
+                os.remove(tmp.name)
+            
+            except Exception as e:
+              st.error(f'An error occurred: {e}')
+              
+        else:
+          if not image_upload and start_button:
+          #if not image_upload and not img and start_button:
+            st.warning('Please upload your mock-up image.')
+          if not api_key:
+            st.warning('Please provide your OpenAI API key.')
 
 
 # Tell how the app should be built
