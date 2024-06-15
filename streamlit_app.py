@@ -44,12 +44,14 @@ with tabs[0]:
     if example_img:
         st.subheader('Try these example mock-up images')
         img = image_select(
-                label="Select a cat",
+                label="Select a mock-up image",
                 images=[
-                         "https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
-                         "https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
-                         "https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
-                         "https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
+                         "img/streamlit-app-mockup-1.png",
+                         "img/streamlit-app-mockup-2.png"
+                         #"https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
+                         #"https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
+                         #"https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
+                         #"https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
                         ],
                 #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
                 )
