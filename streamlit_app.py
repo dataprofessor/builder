@@ -25,6 +25,8 @@ with tabs[0]:
     if upload_img:
         st.subheader('Upload your own mock-up image')
         image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
+    else:
+        pass
     
     # Function to encode the image
     def encode_image(image_path):
