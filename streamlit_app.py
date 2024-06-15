@@ -73,7 +73,7 @@ with tabs[0]:
     start_button = st.button('Build', key='button_image_start')
     
 
-    if any([upload_img, example_img]) != True:  
+    if any([upload_img, example_img]) == True:  
     
         if 'img' in locals() or 'img' in globals():
             if start_button:
