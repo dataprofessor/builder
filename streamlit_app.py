@@ -70,7 +70,7 @@ with tabs[0]:
     
     
     # Start LLM process
-    if (not upload_img) or (not example_img):
+    if (not upload_img) and (not example_img):
         start_button = st.button('Build', key='button_image_start', disabled=True)
     else:
         start_button = st.button('Build', key='button_image_start', disabled=False)
