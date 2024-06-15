@@ -52,13 +52,7 @@ with tabs[0]:
                 images=[
                          "img/streamlit-app-mockup-1.png",
                          "img/streamlit-app-mockup-2.png"
-                         #"https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg",
-                         #"https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg",
-                         #"https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg",
-                         #"https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg",
                         ],
-                #captions=["A cat", "Another cat", "Oh look, a cat!", "Guess what, a cat..."],
-                use_container_width=False
                 )
     
     with st.expander('Expand to see prompt instructions'):
@@ -81,22 +75,19 @@ with tabs[0]:
             if start_button:
                 with st.spinner('Processing ...'):
                     time.sleep(1.5)
-                    #if img == 'https://bagongkia.github.io/react-image-picker/0e1abaf656c3367fc89f628f0d52ad11.jpg':
+
                     if img == "img/streamlit-app-mockup-1.png":
                         st.subheader("Input")
                         st.image("img/streamlit-app-mockup-1.png")
                         st.subheader("Output")
                         mockup_1()
-                    #if img == 'https://bagongkia.github.io/react-image-picker/0759b6e526e3c6d72569894e58329d89.jpg':
+
                     if img == "img/streamlit-app-mockup-2.png":
                         st.subheader("Input")
                         st.image("img/streamlit-app-mockup-2.png")
                         st.subheader("Output")
                         mockup_2()
-                    #if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
-                        #st.code('Code 3')
-                    #if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
-                        #st.code('Code 4')
+
             
         elif image_upload is not None and api_key and start_button:
         # if image_upload is not None and openai.api_key and start_button:
