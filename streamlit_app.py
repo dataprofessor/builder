@@ -5,7 +5,7 @@ import openai
 from openai import OpenAI
 from tempfile import NamedTemporaryFile
 from streamlit_image_select import image_select
-from mockup_code import mockup_1
+from mockup_code import mockup_1, mockup_2
 
 # App title
 st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈')
@@ -90,7 +90,7 @@ with tabs[0]:
                         st.subheader("Input")
                         st.image("img/streamlit-app-mockup-2.png")
                         st.subheader("Output")
-                        st.code('Code 2')
+                        mockup_2()
                     #if img == 'https://bagongkia.github.io/react-image-picker/6c800cccebf18c24f51d5fd411818ac8.jpg':
                         #st.code('Code 3')
                     #if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
