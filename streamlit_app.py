@@ -21,8 +21,10 @@ tabs = st.tabs(['Show', 'Tell'])
 # Show how the app should be built
 with tabs[0]:
     # Upload image
-    st.subheader('Upload your own mock-up image')
-    image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
+    upload_img = st.toggle('Upload your own mock-up images')
+    if upload_img:
+        st.subheader('Upload your own mock-up image')
+        image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
     
     # Function to encode the image
     def encode_image(image_path):
