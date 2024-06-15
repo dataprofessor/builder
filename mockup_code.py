@@ -2,6 +2,8 @@ import streamlit as st
 
 
 def mockup_1():
+  st.warning("The following is a pre-generated output and is displayed as an example and also to help save LLM API usage.")
+  
   st.write("Based on the given mock-up image, here is an example of how you could generate the Streamlit app using Python code:")
   
   st.code("""
