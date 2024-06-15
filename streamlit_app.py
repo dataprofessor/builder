@@ -25,24 +25,23 @@ with tabs[0]:
     if upload_img:
         st.subheader('Upload your own mock-up image')
         image_upload = st.file_uploader('Upload an image', type=['png', 'jpg', 'jpeg'])
-    else:
-        st.write("Test")
+
     
-    # Function to encode the image
-    def encode_image(image_path):
-      with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
-    
-    
-    if image_upload:
-      st.image(image_upload, use_column_width=True)
-    
-      # base64_image = encode_image(image_upload)
-      # st.write(base64_image)
-    
-      bytes_data = image_upload.read()
-      with NamedTemporaryFile(delete=False) as tmp:
-        tmp.write(bytes_data)
+        # Function to encode the image
+        def encode_image(image_path):
+          with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+        
+        
+        if image_upload:
+          st.image(image_upload, use_column_width=True)
+        
+          # base64_image = encode_image(image_upload)
+          # st.write(base64_image)
+        
+          bytes_data = image_upload.read()
+          with NamedTemporaryFile(delete=False) as tmp:
+            tmp.write(bytes_data)
 
     # Example images
     example_img = st.toggle('Try example mock-up images')
