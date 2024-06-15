@@ -29,9 +29,8 @@ with tabs[0]:
       with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
     
-    example_img = st.toggle('Try example mock-up images')
-    # if image_upload:
-    if not example_img:
+    
+    if image_upload:
       st.image(image_upload, use_column_width=True)
     
       # base64_image = encode_image(image_upload)
@@ -42,7 +41,7 @@ with tabs[0]:
         tmp.write(bytes_data)
 
     # Example images
-    # example_img = st.toggle('Try example mock-up images')
+    example_img = st.toggle('Try example mock-up images')
     if example_img:
         st.subheader('Try these example mock-up images')
         img = image_select(
