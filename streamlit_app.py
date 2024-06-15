@@ -95,8 +95,10 @@ with tabs[0]:
                 #if img == 'https://bagongkia.github.io/react-image-picker/eb0659e2eebacafff0601e1b93797d7c.jpg':
                     #st.code('Code 4')
         
-
-    elif image_upload is not None and api_key and start_button:
+    if any([upload_img, example_img]) != True:
+        pass
+    else:
+    ## elif image_upload is not None and api_key and start_button:
     # if image_upload is not None and openai.api_key and start_button:
       with st.spinner('Processing ...'):
         base64_image = encode_image(tmp.name)
