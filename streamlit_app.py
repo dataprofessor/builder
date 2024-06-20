@@ -3,7 +3,6 @@ import base64
 import time
 import openai
 from openai import OpenAI
-from tempfile import NamedTemporaryFile
 from streamlit_image_select import image_select
 from mockup_code import mockup_1, mockup_2
 
