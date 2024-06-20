@@ -8,8 +8,8 @@ from streamlit_image_select import image_select
 from mockup_code import mockup_1, mockup_2
 
 # App title
-st.set_page_config(page_title='🎈 Streamlit App Builder', page_icon='🎈')
-st.title('🎈 Streamlit App Builder')
+st.set_page_config(page_title='🛠 Streamlit App Builder', page_icon='🛠')
+st.title('🛠 Streamlit App Builder')
 st.info('In this app you can **Show** (provide mock-up image) or **Tell** (provide text prompt) how you want your Streamlit app to be built.')
 
 # Initialize OpenAI client with API key
